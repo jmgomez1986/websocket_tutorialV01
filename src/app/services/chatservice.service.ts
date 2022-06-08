@@ -4,7 +4,7 @@ import { map } from 'rxjs/operators';
 
 import { WebsocketChatService } from './websocketchat.service';
 
-const CHAT_URL = 'wss://localhost:5000/';
+const CHAT_URL = 'ws://localhost:5000/';
 
 export interface Message {
   user: string;
@@ -20,8 +20,8 @@ export class ChatService {
       wscService.connect(CHAT_URL).pipe(map((response: MessageEvent): Message => {
         let content = JSON.parse(response.data);
         return {
-          user: content.user,
-          messageContent: content.messageContent,
+          user: content.source,
+          messageContent: content.content,
         };
       }))
     );

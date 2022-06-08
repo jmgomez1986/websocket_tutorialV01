@@ -13,7 +13,7 @@ export class AppComponent {
 
   constructor(private chatService: ChatService) {
     chatService.messages.subscribe((msg) => {
-      console.log('Response recieved from websocket: ' + msg);
+      console.log('Response recieved from websocket: ' , msg);
     });
   }
 
