@@ -1,3 +1,27 @@
 <h1>Send Message by clicking button</h1>
 
-<button (click)="sendMessage()">Send</button>
+<div class="row">
+  <div class="column">
+    <textarea [(ngModel)]="contentToSend" name="contentInput" cols="40" rows="5"></textarea>
+    <br>
+    <button (click)="sendMessage()">Send Message</button>
+  </div>
+</div>
+<br>
+
+<div>
+  <h1>Sent Messages</h1>
+  <br>
+  <ul>
+    <li>Source: {{sent.source}} -> Content: {{sent.messageContent}}</li>
+  </ul>
+</div>
+
+<br>
+<div>
+  <h1>Received Messages</h1>
+  <br>
+  <ul>
+    <li>Source: {{received.source}} -> Content: {{received.messageContent}} -> Message Received: {{received.messageReceived}}</li>
+  </ul>
+</div>
